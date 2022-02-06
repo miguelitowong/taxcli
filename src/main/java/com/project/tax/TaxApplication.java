@@ -32,24 +32,27 @@ public class TaxApplication implements CommandLineRunner {
     public void run(String... args) {
         LOG.info("EXECUTING : command line runner");
 
-        generateTacReport();
+        generateTaxReport();
     }
 
-    private void generateTacReport() {
+    private void generateTaxReport() {
+        List<TaxInvoiceEntity> taxInvoiceEntityList;
         try {
-            readCsv();
+            taxInvoiceEntityList = readCsv();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private void readCsv() throws FileNotFoundException {
-        List<TaxInvoiceEntity> beans = new CsvToBeanBuilder(new FileReader(FILE_NAME))
+    private List<TaxInvoiceEntity> readCsv() throws FileNotFoundException {
+        List taxInvoiceEntityList = new CsvToBeanBuilder(new FileReader(FILE_NAME))
                 .withType(TaxInvoiceEntity.class)
                 .build()
                 .parse();
 
-        beans.forEach(System.out::println);
+        taxInvoiceEntityList.forEach(System.out::println);
+        return taxInvoiceEntityList;
     }
 
 }

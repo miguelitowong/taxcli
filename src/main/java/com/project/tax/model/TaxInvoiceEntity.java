@@ -13,7 +13,7 @@ public class TaxInvoiceEntity {
     private String invoiceNo;
 
     @CsvBindByPosition(position = 2)
-    private Timestamp timestamp;
+    private String timestamp;
 
     @CsvBindByPosition(position = 3)
     private Double amount;
@@ -37,11 +37,11 @@ public class TaxInvoiceEntity {
         this.invoiceNo = invoiceNo;
     }
 
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
