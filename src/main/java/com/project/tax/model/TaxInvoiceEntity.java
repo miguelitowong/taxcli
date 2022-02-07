@@ -2,7 +2,6 @@ package com.project.tax.model;
 
 import com.opencsv.bean.CsvBindByPosition;
 
-import java.sql.Timestamp;
 
 public class TaxInvoiceEntity {
 
